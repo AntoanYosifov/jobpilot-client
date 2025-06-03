@@ -1,0 +1,14 @@
+<!-- src/app/features/job-list/job-list.component.html -->
+<h2>First Page of Jobs (page 0)</h2>
+
+@if (jobs$ | async; as jobs) {
+    <ul>
+        @for (job of jobs; track job.title) {
+            <li>
+                <strong>{{ job.title }}</strong> — {{ job.companyName }} ({{ job.locationName }})
+            </li>
+        }
+    </ul>
+} @else {
+    <p>Loading jobs…</p>
+}
