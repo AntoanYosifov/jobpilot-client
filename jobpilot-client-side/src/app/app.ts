@@ -9,5 +9,5 @@ import {JobList} from "./features/job-list/job-list";
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'jobpilot-client-side';
+  protected title = 'jobpilot-client';
 }
