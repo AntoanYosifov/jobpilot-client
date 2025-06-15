@@ -1,14 +1,38 @@
 <!-- src/app/features/job-list/job-list.component.html -->
-<h2>First Page of Jobs (page 0)</h2>
+<div class="flex-col min-h-screen
+            bg-gradient-to-r
+            from-black
+            via-gray-900
+            to-green-950
+">
 
-@if (jobs$ | async; as jobs) {
-    <ul>
-        @for (job of jobs; track job.title) {
-            <li>
-                <strong>{{ job.title }}</strong> — {{ job.companyName }} ({{ job.locationName }})
-            </li>
-        }
-    </ul>
-} @else {
-    <p>Loading jobs…</p>
-}
+    <nav class="navigation-container flex gap-3 items-center text-gray-300 border-b-1 border-b-gray-800 pl-3.5 pt-3 pb-3">
+
+        <a routerLink="" class="title-logo-container flex gap-3 items-center">
+            <img src="/briefcase.svg" alt="briefcaseIcon" class="w-9 h-9 bg-white rounded-4xl animate-pulse">
+            <h2 class="font-mono font-semibold italic text-2xl">JobPilot</h2>
+        </a>
+
+    </nav>
+
+    @if (jobs$ | async; as jobs) {
+        <div class="p-4">
+            <ul>
+                @for (job of jobs; track job.title) {
+                    <li class="ml-4 mb-4 br-4  border-l-1 border-l-gray-700 text-white rounded-2xl p-4">
+                        <p class="ml-4 mb-4"><strong>{{ job.title }}</strong> — {{ job.companyName }} ({{ job.locationName }})</p>
+                        <p class="ml-8">{{ job.description }}</p>
+                    </li>
+                }
+            </ul>
+        </div>
+
+    } @else {
+        <p>Loading jobs…</p>
+    }
+    <footer class="text-gray-300 text-xs">
+        <div class="flex justify-end pb-8 pr-15">
+            <p>Icons made from <a href="https://www.onlinewebfonts.com/icon">svg icons</a> is licensed by CC BY 4.0</p>
+        </div>
+    </footer>
+</div>
